@@ -50,17 +50,48 @@ public class Main {
 	} 
 	
 	public void viewMovie() {
+		int counter = 1;
 		for (Movie movie : movies) {
+			System.out.println(counter + ". Title : " + movie.getTitle());
+			System.out.println("Price : " + movie.getPrice());
+
 			if(movie instanceof Anime) {
-				System.out.println("Title : ");
-			} else if (movie instanceof Realtime) {
+				System.out.println("Type : Anime");
 				
+				Integer pen;
+				pen = ((Anime) movie).getPen();
+				
+				System.out.println("Pen : " + pen);
+			} else if(movie instanceof Realtime) {
+				System.out.println("Type : Realtime");
+				
+				String cameraBrand;
+				cameraBrand = ((Realtime) movie).getCameraBrand();
+				
+				System.out.println("Camera Brand : " + cameraBrand);
 			}
+			
+			counter++;
+			System.out.println();
 		}
 	}
 	
 	public void removeMovie() {
+		viewMovie();
+		System.out.println();
 		
+		String title;
+		System.out.print("Input title to delete : ");
+		title = scan.nextLine();
+		
+		for (Movie movie : movies) {
+			if(title.equals(movie.getTitle())) {
+				movies.remove(movie);
+				break;
+			}
+		}
+		
+		System.out.println("Successfully Delete");
 	}
 	
 	public void menu() {
@@ -86,10 +117,13 @@ public class Main {
 				System.out.println("Please choose input 1-3");
 				break;
 			}
+			
+			menu();
 		} while (!(choice >= 1 && choice <= 3));
 	}
 	
 	public Main() {
+		movies.add(new Anime("asjdas", 1201222, 2));
 		menu();
 	}
 	
