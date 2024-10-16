@@ -1,21 +1,21 @@
 package models;
 
 public class Movie {
-	private String name;
+	private String title;
 	private Integer price;
 	
-	public Movie(String name, Integer price) {
+	public Movie(String title, Integer price) {
 		super();
-		this.name = name;
+		this.title = title;
 		this.price = price;
 	}
 
-	public String getName() {
-		return name;
+	public String getTitle() {
+		return title;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setTitle(String name) {
+		this.title = name;
 	}
 
 	public Integer getPrice() {
